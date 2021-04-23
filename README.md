@@ -1,6 +1,9 @@
 # **eWallet Mobile App**
 Here's a course project for learning ___React Native___
 
+### Notes
+  - The entire source code is developed relatively completely at gitlab. Currently migrated to github.
+
 ## **1. Introduce**
 
 Want to start personal finance management but don't know where to start? 🤔
