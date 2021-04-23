@@ -1,0 +1,35 @@
+Quản trị admin: 2 chức năng chính
+- Quản trị người dùng
+  + Actor: admin và supervisor
+  + Use case:
+      o Admin:
+          1. Thêm, xóa, nâng quyền và reset mật khẩu cho tất cả tài khoản supervisor
+          2. Thêm tài khoản admin khác
+          3. Xem thông tin, xóa tài khoản chính mình
+          4. Yêu cầu reset mật khẩu tài khoản chính mình trong trang đăng nhập
+          5. Hiển thị danh sách tất cả tài khoản quản trị viên (admin, supervisor) + xem chi tiết (tên hiển thị, tên đăng nhập, chức vụ, trạng thái, ngày tạo + button thao tác khác: nâng quyền, xóa, reset mật khẩu)
+          6. Hiển thị danh sách tất cả tài khoản người dùng + xem chi tiết (tên hiển thị, tên đăng nhập, chức vụ, trạng thái, ngày tạo + button thao tác khác: khóa/mở, reset mật khẩu + sub-table danh sách ví người dùng: tên ví, loại ví, số tiền trong ví, trạng thái, ngày tạo + button thao tác khác: khóa/mở)
+          7. Báo cáo thống kê số tài khoản tạo mới theo tháng
+      o Supervisor:
+          1. Xem thông tin, sửa, xóa thông tin tài khoản chính mình
+          2. Yêu cầu reset mật khẩu tài khoản chính mình trong trang đăng nhập
+          3. Hiển thị danh sách tất cả tài khoản người dùng + xem chi tiết (tên hiển thị, tên đăng nhập, chức vụ, trạng thái, ngày tạo + button thao tác khác: khóa/mở, reset mật khẩu + sub-table danh sách ví người dùng: tên ví, loại ví, số tiền trong ví, trạng thái, ngày tạo + button thao tác khác: khóa/mở)
+          4. Báo cáo thống kê số tài khoản tạo mới theo tháng
+
+- Quản trị transaction
+          1. Hiển thị danh sách tất cả transaction + xem chi tiết (tên hiển thị, tên đăng nhập, chức vụ, trạng thái, ngày tạo + button thao tác khác: reverse transaction)
+          2. Báo cáo thống kê số transaction tạo mới theo tháng
+
+* Các yêu cầu về chức năng:
+- Các tài khoản quản trị không cần khóa/mở mà chỉ cần xóa
+- Tài khoản admin chỉ được xóa tài khoản supervisor và tài khoản chính mình
+- Tài khoản supervisor chỉ được xóa tài khoản chính mình
+- Tài khoản người dùng, ví chỉ được khóa/mở, không được xóa
+- Button khóa/mở tài khoản phải được hiển thị tùy theo trạng thái, không hiển thị 2 button cùng 1 lúc
+- Khi reset mật khẩu có trường nhập email để gửi mật khẩu được gen ngẫu nhiên qua email đó
+- Hiển thị danh sách theo dạng bảng (table) có pagination, có thể hỗ trợ thêm lazy loading (loading phân trang)
+- Sub-table hiển thị bên trong table chính, theo dạng accordeon, hiển thị ra khi nhấn vào row của người dùng)
+- Table phải có checkbox trước mỗi row để chọn nhiều trường dữ liệu cho thao tác cùng lúc (xóa, khóa tài khoản)
+- Button xóa, khóa nhiều trường dữ liệu chỉ hiển thị ra (hoặc chỉ được enabled) khi có ít nhất 1 checkbox được chọn
+- Báo cáo thống kê hiển thị theo dạng cột
+- Reverse transaction phải tạo mới transaction, không ghi đè transaction cũ
